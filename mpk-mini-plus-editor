@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# MPK-Mini-Plus-editor
+# Copyright (C) 2025  Jesse G
+# Original work derived from
+# MPK-M2-editor
+# Copyright (C) 2017-2022  Damien Picard dam.pic AT free.fr
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+"""MPK Editor GUI."""
+
+import os
+import sys
+
+from PyQt5 import QtCore, QtWidgets
+
+from ui.main_ui import UiMainWindow
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    appTranslator = QtCore.QTranslator()
+
+    if appTranslator.load(
+            QtCore.QLocale(),
+            "",
+            directory=os.path.join(os.path.dirname(os.path.abspath(__file__)), "i18n")):
+        app.installTranslator(appTranslator)
+
+    sysTranslator = QtCore.QTranslator()
+    pathSysTranslations = QtCore.QLibraryInfo.location(QtCore.QLibraryInfo.TranslationsPath)
+    if sysTranslator.load(QtCore.QLocale(), 'qt', '_', pathSysTranslations):
+        app.installTranslator(sysTranslator)
+
+    MainWindow = UiMainWindow()
+    MainWindow.show()
+    sys.exit(app.exec_())

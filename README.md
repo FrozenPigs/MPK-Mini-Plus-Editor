@@ -1,16 +1,16 @@
-MPK M2-editor
+MPK-Mini-Plus-Editor
 =============
-Alternative to the official AKAI MPKMini MkII Editor
+Alternative to the official AKAI MPKMini Plus Editor
 
-[🇫🇷](docs/README.fr.md)
+Special shout outs to Damien Picard(PiOverFour) whos project this was initally based on, though most code has been rewritted, and Joonas from [joonas.fi](https://joonas.fi) for his artical on reversing his MPK3.
 
-![Editor window](docs/editor_screenshot.png?raw=true "The editor")
+![Edit or window](docs/editor_screenshot.png?raw=true "The editor")
 
 ## Overview
-This program is a replacement for the official Akai MPK Mini MkII Editor. Although less fancy, it is just as usable.
+This program is a replacement for the official Akai MPK Mini Plus Editor. Although less fancy, it is just as usable.
 
 ## Requirements
-The program is written in Python3 and relies on PyQt5 and python-rtmidi. It was tested on GNU/Linux, Mac OS X and Windows.
+The program is written in Python3 and relies on PyQt5 and python-rtmidi. It was tested on GNU/Linux.
 
 ## Installation
 A good way would be to use pip for the dependencies.
@@ -22,6 +22,7 @@ A good way would be to use pip for the dependencies.
 ```
 
 ### Mac OS X
+***UNTESTED***
 You can install Python and pip using homebrew. You may need a recent version of Mac OS X.
 ```
   brew install python3
@@ -29,6 +30,7 @@ You can install Python and pip using homebrew. You may need a recent version of 
 ```
 
 ### Windows
+***UNTESTED***
 * Download and install `python3` from [the python website](https://www.python.org/downloads/windows/). Make sure you install `pip` as well in the installer wizard
 * Download and install [Visual C++ build tools 2015](http://landinghub.visualstudio.com/visual-cpp-build-tools)
 * In a command prompt, type:
@@ -48,8 +50,8 @@ The Send RAM button allows you to send the current controller configuration, wit
 The joystick options work this way:
 * First, select the basic behaviour: **Pitchbend**, **CC1** or **CC2**.
 * **Pitchbend**: you're done.
-* **CC1**: The joystick sends a CC message on the canal specified in **Left** for the X Axis, **Up** for the Y axis.
-* **CC2**: The joystick sends a CC message on the canals specified in **Left** OR **Right** for the X Axis, **Up** OR **Down** for the Y axis.
+* **CC1**: The joystick sends a CC message on the channel specified in **CC1** for the both Axes.
+* **CC2**: The joystick sends a CC message on the canals specified in **CC1** OR **CC2** for the both Axes.
 
 ### Auto Fill
 Click the menu Edit -> Auto fill... This dialog allows you to fill several fields at once. First tick the check boxes for the options you would like to have filled (eg. PC start). Fill the corresponding fields, and press the button corresponding to the options you'd like to fill (eg. A for Bank A). This will fill the options for the *selected program* tab only.
@@ -61,6 +63,7 @@ This is a good starting point. If you would like to contribute, please do so!
 
 ## License
 
+> Copyright (C) 2025 Jesse G derived from work of
 > Copyright (C) 2017-2020 Damien Picard dam.pic AT free.fr and
 > contributors
 >
