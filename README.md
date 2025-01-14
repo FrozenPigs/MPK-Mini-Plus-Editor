@@ -2,7 +2,7 @@ MPK-Mini-Plus-Editor
 =============
 Alternative to the official AKAI MPKMini Plus Editor
 
-Special shout outs to Damien Picard(PiOverFour) whos project this was initally based on, though most code has been rewritted, and Joonas from [joonas.fi](https://joonas.fi) for his artical on reversing his MPK3.
+Special shout outs to Damien Picard(PiOverFour) whos project this was initally based on, though most code has been rewritten, and Joonas from [joonas.fi](https://joonas.fi) for his artical on reversing his MPK3.
 
 ![Edit or window](docs/editor_screenshot.png?raw=true "The editor")
 
