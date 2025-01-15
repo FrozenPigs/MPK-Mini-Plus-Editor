@@ -1,2 +1,2 @@
 python-rtmidi
-PyQt5
+PyQt6

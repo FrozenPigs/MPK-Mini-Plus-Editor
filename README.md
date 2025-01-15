@@ -10,7 +10,7 @@ Special shout outs to Damien Picard(PiOverFour) whos project this was initally b
 This program is a replacement for the official Akai MPK Mini Plus Editor. Although less fancy, it is just as usable.
 
 ## Requirements
-The program is written in Python3 and relies on PyQt5 and python-rtmidi. It was tested on GNU/Linux.
+The program is written in Python3 and relies on PyQt6 and python-rtmidi. It was tested on GNU/Linux.
 
 ## Installation
 A good way would be to use pip for the dependencies.

@@ -21,9 +21,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """Misc widgets for akai MPK plus."""
-from PyQt5 import QtWidgets
-from PyQt5.QtCore import QT_TRANSLATE_NOOP
-from PyQt5.QtWidgets import QLineEdit, QVBoxLayout
+from PyQt6 import QtWidgets
+from PyQt6.QtCore import QT_TRANSLATE_NOOP
+from PyQt6.QtWidgets import QLineEdit, QVBoxLayout
 
 from ui.widgets import QCustomGroupBox
 

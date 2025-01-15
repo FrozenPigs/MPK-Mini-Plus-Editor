@@ -21,8 +21,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """Options widget for MPK plus."""
-from PyQt5.QtCore import QCoreApplication
-from PyQt5.QtWidgets import QHBoxLayout, QPushButton, QVBoxLayout
+from PyQt6.QtCore import QCoreApplication
+from PyQt6.QtWidgets import QHBoxLayout, QPushButton, QVBoxLayout
 
 
 class Options(QHBoxLayout):    # pylint: disable=too-few-public-methods

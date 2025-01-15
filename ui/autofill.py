@@ -24,11 +24,11 @@
 from functools import partial
 
 from core.config import Config
-from PyQt5 import QtCore
-from PyQt5.QtCore import QT_TRANSLATE_NOOP, Qt
-from PyQt5.QtWidgets import (QCheckBox, QComboBox, QGroupBox, QHBoxLayout,
-                             QLabel, QPushButton, QSpinBox, QVBoxLayout,
-                             QWidget)
+from PyQt6 import QtCore
+from PyQt6.QtCore import QT_TRANSLATE_NOOP, Qt
+from PyQt6.QtWidgets import (QCheckBox, QComboBox, QDialog, QGroupBox,
+                             QHBoxLayout, QLabel, QPushButton, QSpinBox,
+                             QVBoxLayout, QWidget)
 
 from ui.widgets import QColorComboBox
 
@@ -305,7 +305,7 @@ class Knobs(QGroupBox):    # pylint: disable=too-few-public-methods
         self.apply_button.setObjectName('knobs_apply_push_button')
         self.apply_button.clicked.connect(apply_autofill_knobs)
 
-        self.layout.addWidget(self.apply_button, 0, QtCore.Qt.AlignRight)
+        self.layout.addWidget(self.apply_button, 0, QtCore.Qt.AlignmentFlag.AlignRight)
 
     def retranslate(self):
         """Retranslate the widgets."""
@@ -341,7 +341,7 @@ class UiAutoFill(QWidget):
         self.setMinimumSize(500, 250)
         self.resize(500, 250)
         self.move(0, 0)
-        self.setWindowFlags(Qt.Dialog)
+        self.setWindowFlags(QtCore.Qt.WindowType.Dialog)
         self.main_window = main_window
 
         layout = QHBoxLayout(self)

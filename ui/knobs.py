@@ -21,7 +21,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """Knobs widget for akai MPK plus."""
-from PyQt5.QtCore import QT_TRANSLATE_NOOP
+from PyQt6.QtCore import QT_TRANSLATE_NOOP
 
 from ui.widgets import QCustomGroupBox
 

@@ -23,8 +23,9 @@
 """Menubar widget."""
 from functools import partial
 
-from PyQt5.QtCore import QCoreApplication, QRect
-from PyQt5.QtWidgets import QAction, QMenu, QMenuBar
+from PyQt6.QtCore import QCoreApplication, QRect
+from PyQt6.QtGui import QAction
+from PyQt6.QtWidgets import QMenu, QMenuBar
 
 
 class MenuBar(QMenuBar):    # pylint: disable=too-few-public-methods

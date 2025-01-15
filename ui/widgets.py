@@ -22,10 +22,10 @@
 
 """Custom default QT widgets to inherit from."""
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QCoreApplication, Qt
-from PyQt5.QtGui import QColor
-from PyQt5.QtWidgets import (QCheckBox, QComboBox, QGridLayout, QGroupBox,
+from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtCore import QCoreApplication, Qt
+from PyQt6.QtGui import QColor
+from PyQt6.QtWidgets import (QCheckBox, QComboBox, QGridLayout, QGroupBox,
                              QHBoxLayout, QLabel, QLineEdit, QSpinBox,
                              QVBoxLayout)
 
@@ -48,7 +48,9 @@ class ComboDelegate(QtWidgets.QStyledItemDelegate):    # pylint: disable=too-few
                 new_color = option.backgroundBrush.color().darker(175)
             painter.fillRect(option.rect, option.backgroundBrush)
             painter.setPen(new_color)
-            painter.drawText(option.rect, QtCore.Qt.AlignCenter | QtCore.Qt.AlignVCenter, 'S')
+            painter.drawText(
+                option.rect,
+                QtCore.Qt.AlignmentFlag.AlignCenter | QtCore.Qt.AlignmentFlag.AlignVCenter, 'S')
 
         painter.restore()
 
@@ -84,7 +86,8 @@ class QColorComboBox(QComboBox):
                 a_color = QColor(a_color)
             if self.findData(a_color) == -1:
                 self.addItem('', userData=a_color)
-                self.setItemData(self.count() - 1, QColor(a_color), QtCore.Qt.BackgroundRole)
+                self.setItemData(self.count() - 1, QColor(a_color),
+                                 QtCore.Qt.ItemDataRole.BackgroundRole)
         if self._init:
             self._color_selected(0, emit_signal=False)
             self._init = False
@@ -182,7 +185,7 @@ class QCustomGroupBox(QGroupBox):    # pylint: disable=too-few-public-methods
             check_box.setStyleSheet(style_sheet)
         if state_change_action:
             check_box.stateChanged.connect(state_change_action)
-        layout.addWidget(check_box, 0, Qt.AlignHCenter)
+        layout.addWidget(check_box, 0, Qt.AlignmentFlag.AlignHCenter)
         self.layout.addLayout(layout)
         return (label, check_box)
 

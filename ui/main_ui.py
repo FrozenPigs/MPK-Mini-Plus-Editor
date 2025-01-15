@@ -26,9 +26,9 @@ import sys
 
 from core.config import Config
 from core.midi_interface import AkaiMPKPlus
-from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtCore import QRegExp
-from PyQt5.QtWidgets import QGroupBox, QMessageBox
+from PyQt6 import QtCore, QtWidgets
+from PyQt6.QtCore import QRegularExpression
+from PyQt6.QtWidgets import QGroupBox, QMessageBox
 
 from ui.autofill import UiAutoFill
 from ui.menubar import MenuBar
@@ -242,7 +242,7 @@ class UiMainWindow(QtWidgets.QMainWindow):
         self.findChild(QtWidgets.QMenuBar, 'menubar').retranslate()
 
         progs = self.findChild(QtWidgets.QTabWidget, 'programmes').findChildren(
-            QtWidgets.QWidget, QRegExp('prog_*'))[::-1]
+            QtWidgets.QWidget, QRegularExpression('prog_*'))[::-1]
         for p_i, prog in enumerate(progs):
 
             prog.findChild(QtWidgets.QVBoxLayout, 'misc').retranslate()

@@ -25,7 +25,7 @@
 import os
 import sys
 
-from PyQt5 import QtCore, QtWidgets
+from PyQt6 import QtCore, QtWidgets
 
 from ui.main_ui import UiMainWindow
 
@@ -40,10 +40,10 @@ if __name__ == "__main__":
         app.installTranslator(appTranslator)
 
     sysTranslator = QtCore.QTranslator()
-    pathSysTranslations = QtCore.QLibraryInfo.location(QtCore.QLibraryInfo.TranslationsPath)
+    pathSysTranslations = QtCore.QLibraryInfo.path(QtCore.QLibraryInfo.LibraryPath.LibrariesPath)
     if sysTranslator.load(QtCore.QLocale(), 'qt', '_', pathSysTranslations):
         app.installTranslator(sysTranslator)
 
     MainWindow = UiMainWindow()
     MainWindow.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

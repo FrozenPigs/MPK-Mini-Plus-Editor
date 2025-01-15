@@ -22,7 +22,7 @@
 
 """Main programmes tab widget."""
 
-from PyQt5.QtWidgets import QGridLayout, QTabWidget, QWidget
+from PyQt6.QtWidgets import QGridLayout, QTabWidget, QWidget
 
 from ui.knobs import Knobs
 from ui.misc import Misc
@@ -57,7 +57,7 @@ class Programmes(QTabWidget):    # pylint: disable=too-few-public-methods
         """Create the layout and add the widgets."""
         super().__init__(*args, **kwargs)
         self.setEnabled(True)
-        self.setTabShape(QTabWidget.Rounded)
+        self.setTabShape(QTabWidget.TabShape.Rounded)
         self.setObjectName('programmes')
 
         # Programmes
