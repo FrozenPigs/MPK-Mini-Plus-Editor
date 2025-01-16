@@ -282,8 +282,8 @@ class Channels(QCustomGroupBox):    # pylint: disable=too-few-public-methods
 
     def fill(self, config):
         """Fill widgets with config values."""
-        self._channel_pad_spin_box[1].setValue(config.pad_channel + 1)
-        self._channel_key_spin_box[1].setValue(config.key_channel + 1)
+        self._channel_pad_spin_box[1].setValue(config.pad_channel)
+        self._channel_key_spin_box[1].setValue(config.key_channel)
         self._channel_pad_aftertouch_combo_box[1].setCurrentIndex(config.pad_aftertouch)
 
     def values(self):
