@@ -88,5 +88,8 @@ class AkaiMPKPlus():
         in_message = self.send_midi_message(out_message)
         # print('in', in_message)
         config = Config()
-        config.parse_config(in_message)
+        try:
+            config.parse_config(in_message)
+        except TypeError:
+            self.midi_setup()
         return config
