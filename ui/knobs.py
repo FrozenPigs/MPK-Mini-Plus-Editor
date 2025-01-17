@@ -63,10 +63,14 @@ class Knob(QCustomGroupBox):    # pylint: disable=too-few-public-methods
 
     def values(self):
         """Return a list of values from the widget."""
+        name = self._knob_name_line_edit[1].text()
+        if len(name) < 16:
+            name = list(map(ord, name)) + [0] * (16 - (len(name)))
+        elif len(name) >= 16:
+            name = list(map(ord, name[0:16]))
         return [
             self._knob_cc_spin_box[1].value(), self._knob_min_spin_box[1].value(),
-            self._knob_max_spin_box[1].value(), self._knob_type_combo_box[1].currentIndex(), *list(
-                map(ord, self._knob_name_line_edit[1].text()))
+            self._knob_max_spin_box[1].value(), self._knob_type_combo_box[1].currentIndex(), *name
         ]
 
 
