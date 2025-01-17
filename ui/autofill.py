@@ -103,14 +103,15 @@ class Pads(QGroupBox):    # pylint: disable=too-few-public-methods,too-many-inst
     def _add_cc_type_toggle(self, name):
         """Add cc type layout."""
         h_box = self._add_h_box(f'{name}_h_box')
-        type_check_box = QCheckBox(self)
-        type_check_box.setObjectName(f'{name}_check_box')
-        h_box.addWidget(type_check_box)
-        type_combo_box = QComboBox(self)
-        type_combo_box.setObjectName(f'{name}_combo_box')
-        type_combo_box.addItems([''] * 3)
-        h_box.addWidget(type_combo_box)
-        return (h_box, type_check_box, type_combo_box)
+        check_box = QCheckBox(self)
+        check_box.setObjectName(f'{name}_check_box')
+        h_box.addWidget(check_box)
+        combo_box = QComboBox(self)
+        combo_box.setObjectName(f'{name}_combo_box')
+        items = 3 if name == 'cc_type' else 2
+        combo_box.addItems([''] * items)
+        h_box.addWidget(combo_box)
+        return (h_box, check_box, combo_box)
 
     def _add_on_off_color(self, name):
         """Add cc type layout."""
@@ -365,17 +366,17 @@ class UiAutoFill(QWidget):
         do_values = self.knobs_group_box.cc_start[0].checkState()
         do_min = self.knobs_group_box.cc_min[0].checkState()
         do_max = self.knobs_group_box.cc_max[0].checkState()
-        if do_values:
+        if do_values == Qt.CheckState.Checked:
             start_value = self.knobs_group_box.cc_start[1].value()
             direction = self.knobs_group_box.cc_start[2].currentIndex()
             direction = 1 if direction == 0 else -1
             for i in range(8):
                 conf.knobs[i + 1][0] = start_value + i * direction
-        if do_min:
+        if do_min == Qt.CheckState.Checked:
             minimum = self.knobs_group_box.cc_min[1].value()
             for i in range(8):
                 conf.knobs[i + 1][1] = minimum
-        if do_max:
+        if do_max == Qt.CheckState.Checked:
             maximum = self.knobs_group_box.cc_max[1].value()
             for i in range(8):
                 conf.knobs[i + 1][2] = maximum
@@ -389,7 +390,8 @@ class UiAutoFill(QWidget):
         conf = mw.get_tab_programme(config, p_from)
         programme = 0 if programme == 'A' else 8
 
-        if self.pads_group_box.note_start[1].checkState():
+        if self.pads_group_box.note_start[1].checkState() == Qt.CheckState.Checked:
+            print(self.pads_group_box.note_start[1].checkState())
             scale = self.pads_group_box.note_start[3].currentIndex()
             direction = self.pads_group_box.note_start[2].currentIndex()
             start_note = self.pads_group_box.note_start[4].value()
@@ -417,7 +419,7 @@ class UiAutoFill(QWidget):
         mw.fill_tab(conf, p_from)
 
     def _get_spin_box_conf(self, widget, programme, conf, conf_id):
-        if widget[1].checkState():
+        if widget[1].checkState() == Qt.CheckState.Checked:
             value = widget[2].value()
             pc_direction = widget[3].currentIndex()
             pc_direction = 1 if pc_direction == 0 else -1
@@ -426,7 +428,7 @@ class UiAutoFill(QWidget):
         return conf
 
     def _get_combo_box_conf(self, widget, programme, conf, conf_id):
-        if widget[1].checkState():
+        if widget[1].checkState() == Qt.CheckState.Checked:
             cc_type = widget[2].currentIndex()
             for i in range(8):
                 conf.pads[i + 1 + programme][conf_id] = cc_type

@@ -38,7 +38,7 @@ class ComboDelegate(QtWidgets.QStyledItemDelegate):    # pylint: disable=too-few
         self.initStyleOption(option, index)
         painter.fillRect(option.rect, option.backgroundBrush)
         painter.save()
-        if option.state & QtWidgets.QStyle.State_MouseOver:
+        if option.state & QtWidgets.QStyle.StateFlag.State_MouseOver:
             if option.backgroundBrush.color().lightness() in (0, 1):
                 new_color = QtGui.QColor(255, 255, 255)
             elif option.backgroundBrush.color().lightness() <= 121 or (option.backgroundBrush.color(
