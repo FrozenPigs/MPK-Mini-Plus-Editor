@@ -171,6 +171,8 @@ class UiMainWindow(QtWidgets.QMainWindow):
         p_from = self.get_active_tab_index()
         config = Config()
         conf = self.get_tab_programme(config, p_from)
+        conf.pad_channel += 1
+        conf.key_channel += 1
         self.fill_tab(conf, p_to - 1)
 
     def send_all_programmes(self):
