@@ -240,11 +240,18 @@ class ProgrammeName(QCustomGroupBox):    # pylint: disable=too-few-public-method
 
     def fill(self, config):
         """Fill widgets with config values."""
-        self._name_line_edit.setText(''.join([chr(x) for x in config.title]))
+        title = [i for i in config.title if i != 0]
+        title = ''.join([chr(x) for x in title])
+        self._name_line_edit.setText(title)
 
     def values(self):
         """Return a dict of values from the widget."""
-        return {'title': list(map(ord, self._name_line_edit.text()))}
+        name = self._name_line_edit.text()
+        if len(name) < 16:
+            name = list(map(ord, name)) + [0] * (16 - (len(name)))
+        elif len(name) >= 16:
+            name = list(map(ord, name[0:16]))
+        return {'title': name}
 
 
 class Channels(QCustomGroupBox):    # pylint: disable=too-few-public-methods

@@ -59,7 +59,9 @@ class Knob(QCustomGroupBox):    # pylint: disable=too-few-public-methods
         self._knob_min_spin_box[1].setValue(config[1])
         self._knob_max_spin_box[1].setValue(config[2])
         self._knob_type_combo_box[1].setCurrentIndex(config[3])
-        self._knob_name_line_edit[1].setText(''.join([chr(x) for x in config[4:]]))
+        name = [i for i in config[4:] if i != 0]
+        name = ''.join([chr(x) for x in name])
+        self._knob_name_line_edit[1].setText(name)
 
     def values(self):
         """Return a list of values from the widget."""
